@@ -1,0 +1,29 @@
+{
+  "name": "express-jwt-token",
+  "version": "1.0.0",
+  "description": "Create JsonWebToken and Validate Token is valid or Not",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshokAshok24/express-JWT-Token.git"
+  },
+  "author": "Ashokkumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshokAshok24/express-JWT-Token/issues"
+  },
+  "homepage": "https://github.com/AshokAshok24/express-JWT-Token#readme",
+  "keywords": [],
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
