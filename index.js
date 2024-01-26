@@ -7,7 +7,22 @@ require('dotenv').config()
 app.use(express.json());
 
 
-app.post('/token', (req, res) => {
+app.get('/', (req, res) => {
+
+  const msg =
+    `
+  <h2>Now You are Connected With the Server...</h2>
+  <p>Find the Below API [POST]</p>
+  <ul>
+      <li>generatetoken</li>
+      <li>verify</li>
+  </ul>    
+  `
+
+  res.send(msg)
+})
+
+app.post('/generatetoken', (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
@@ -21,7 +36,7 @@ app.post('/token', (req, res) => {
   }
 })
 
-app.get('/verify', verifyToken, (req, res) => {
+app.post('/verify', verifyToken, (req, res) => {
 
   const msg = ` Hi..${req.name} Token validation Success`
   res.send(msg);
