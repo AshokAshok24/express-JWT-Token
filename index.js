@@ -13,7 +13,7 @@ app.post('/token', (req, res) => {
   const password = req.body.password;
 
   if (email == 'star@gmail.com' && password == 'pass') {
-    const token = jwt.sign({ name: 'star', email: email }, process.env.SECURITY_KEY, { expiresIn: '1minute' });
+    const token = jwt.sign({ name: 'star', email: email }, process.env.SECURITY_KEY, { expiresIn: '5minute' });
 
     return res.status(200).json({ status: 1, message: token })
   } else {
@@ -23,8 +23,9 @@ app.post('/token', (req, res) => {
 
 app.get('/verify', verifyToken, (req, res) => {
 
-  console.log(`req.name`, req.name);
-  res.send(req.name)
+  const msg = ` Hi..${req.name} Token validation Success`
+  res.send(msg);
+
 })
 
 
