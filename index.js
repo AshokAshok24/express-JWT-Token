@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./jwtmiddleware/verifyToken');
 const app = express();
 require('dotenv').config()
 
@@ -20,25 +21,10 @@ app.post('/token', (req, res) => {
   }
 })
 
-app.post('/validatetoken', (req, res) => {
+app.get('/verify', verifyToken, (req, res) => {
 
-  const bearerHeader = req.headers["authorization"];
-  const token = bearerHeader.split(" ")[1];
-
-  if (!token) {
-
-    return res.json({ Message: "Not Authendicated" });
-
-  } else {
-
-    jwt.verify(token, process.env.SECURITY_KEY, (err, decoded) => {
-      if (err) {
-
-        res.json({ Token: "Token Invalid" });
-      }
-      return res.status(200).json({ status: 1, TokenValues: decoded })
-    });
-  }
+  console.log(`req.name`, req.name);
+  res.send(req.name)
 })
 
 
