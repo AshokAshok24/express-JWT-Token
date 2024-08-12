@@ -43,7 +43,6 @@ app.post('/verify', verifyToken, (req, res) => {
 
 })
 
-
 const port = process.env.PORT
 // For Listining the server
 
